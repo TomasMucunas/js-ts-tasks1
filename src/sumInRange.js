@@ -4,6 +4,22 @@
  * @param {number|string} end
  * @returns {number}
  */
+
 module.exports.sumInRange = function sumInRange(start, end) {
-  throw new Error('Not implemented');
+  start = Number(start);
+  end = Number(end);
+
+  if (start > end) {
+    let temp = start;
+    start = end;
+    end = temp;
+  }
+
+  let sum = 0;
+
+  for (let i = start; i <= end; i++) {
+    sum = sum + i;
+  }
+
+  return sum;
 };

@@ -4,6 +4,8 @@
  * @param {number} r - radius
  * @returns {number}
  */
+
 module.exports.volumeCone = function volumeCone(h, r) {
-  throw new Error('Not implemented');
+  let volume = (1 / 3) * Math.PI * r * r * h;
+  return Number(volume.toFixed(2));
 };
