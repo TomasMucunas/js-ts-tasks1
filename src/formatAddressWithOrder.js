@@ -1,13 +1,22 @@
 /**
- * Write a function which returns a formatter function to format address based on input address data
- * Array 'order' is specifying the format by string index in array.
- * In result address string all entities should be divided with ', ' except the last one (no ', ' at the end)
- * Example:
- * order = ['city', 'street', 'house', 'apartment', 'postalCode', 'country']
- * gives address string like: 'city, street, house, apartment, postalCode, country'
+ * Напишите функцию, которая возвращает функцию форматирования для форматирования адреса на основе входных данных адреса.
+ * Порядок массива определяет формат по индексу строки в массиве.
+ * В строке адреса результата все объекты должны быть разделены знаком ',', кроме последнего (без ', ' в конце)
+ * Пример:
+ * order = ['город', 'улица', 'дом', 'квартира', 'почтовый индекс', 'страна']
+ * дает строку адреса, например: «город, улица, дом, квартира, почтовый индекс, страна»
  * @param {Array} order
  * @returns {function}
  */
 module.exports.formatAddressWithOrder = function formatAddressWithOrder(order) {
-  throw new Error('Not implemented'); // remove me and write a solution
+  return function (address) {
+    var resultParts = [];
+
+    for (var i = 0; i < order.length; i++) {
+      var key = order[i];
+      resultParts.push(address[key]);
+    }
+
+    return resultParts.join(', ');
+  };
 };
