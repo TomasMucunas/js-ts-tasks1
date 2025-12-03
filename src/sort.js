@@ -1,13 +1,15 @@
 /**
- * Write a function that returns a function that will sort all it's arguments in an order
- * being specified by sortComparator function from TestUtils object
+ * Напишите функцию, которая возвращает функцию, которая будет сортировать все свои аргументы по порядку.
+ * указывается функцией sortComparator из объекта TestUtils
  *
- * Note: You MUST use a function sortComparator from TestUtils object
- * Note: DON'T require/import TestUtils from a test/testUtils
+ * Примечание. Вы ДОЛЖНЫ использовать функцию sortComparator из объекта TestUtils.
+ * Примечание. НЕ требуйте и не импортируйте TestUtils из файла test/testUtils.
  *
  * @param {{ sortComparator: function() }} TestUtils
  * @returns {function}
  */
 module.exports.sort = function sort(TestUtils) {
-  throw new Error('Not implemented'); // remove this line and create your solution
+  return function (...args) {
+    return args.sort(TestUtils.sortComparator);
+  };
 };

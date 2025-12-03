@@ -1,27 +1,31 @@
 /**
- * Write a function that returns a function
- * calculating how much money will a person have after all income/debts calculation
+ * Напишите функцию, которая возвращает функцию
+ * расчет, сколько денег будет у человека после расчета всех доходов/долгов
  *
- * income is an Object that may look like:
+ * доход — это Объект, который может выглядеть так:
  * {
- *   salary: 100, // person's salary
- *   investment: 200, // person's income he gets from investment activities
+ * зарплата: 100, // зарплата человека
+ * инвестиции: 200, // доход человека, который он получает от инвестиционной деятельности
  * }
  *
- * debts is an Object that may look like:
+ * долги — это объект, который может выглядеть так:
  * {
- *   rent: 50, // how much a person should pay for renting a flat/house/etc
- *   food: 25, // how much a person will spend on food
+ * rent: 50, // сколько человек должен заплатить за аренду квартиры/дома/и т.д.
+ * еда: 25, // сколько человек потратит на еду
  * }
  *
- * At the end after calculation all person's money we will have: 100 + 200 - 50 - 25 = 225, that's a final answer
+ * В итоге после подсчета всех денег человека у нас будет: 100 + 200 - 50 - 25 = 225, это окончательный ответ.
  *
- * Note: You MUST use a function sumAllObjectProperties from TestUtils object that will calculate all object numeric properties
- * Note: DON'T require/import TestUtils from a test/testUtils
+ * Примечание. Вы ДОЛЖНЫ использовать функцию sumAllObjectProperties из объекта TestUtils, которая будет вычислять все числовые свойства объекта.
+ * Примечание. НЕ требуйте и не импортируйте TestUtils из файла test/testUtils.
  *
  * @param {{ sumAllObjectProperties: function() }} TestUtils
  * @returns {function}
  */
 module.exports.payments = function payments(TestUtils) {
-  throw new Error('Not implemented'); // remove this line and create your solution
+  return function (incomes, debts) {
+    const totalIncome = TestUtils.sumAllObjectProperties.call(incomes);
+    const totalDebts = TestUtils.sumAllObjectProperties.call(debts);
+    return totalIncome - totalDebts;
+  };
 };
