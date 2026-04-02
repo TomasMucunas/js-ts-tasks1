@@ -6,5 +6,16 @@
  * @return {function}
  */
 module.exports.debounce = function debounce(fn, delay) {
-  throw new Error('Not implemented'); // remove me and write your code
+  let canCall = true;
+
+  return function (...args) {
+    if (!canCall) return;
+
+    fn(...args);
+    canCall = false;
+
+    setTimeout(() => {
+      canCall = true;
+    }, delay);
+  };
 };
